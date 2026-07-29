@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 신입 컨설턴트_Digital Consulting_최수빈</title>
+    <title>삼정KPMG_CyberSecurity_최수빈_PT</title>
     <style>
-        /* 폰트: 프리텐다드 통일 */
+        /* 폰트: 프리텐다드 */
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
         :root {
-            /* KPMG Official Colors - 절제해서 사용 */
+            /* 컨설팅 펌 무드 컬러 팔레트 */
             --kpmg-blue: #00338D;
             --kpmg-light-blue: #0091DA;
-            --kpmg-purple: #470A68;
-            --kpmg-green: #00A3A1;
-            
-            /* 세련된 무채색 계열 (본문용) */
-            --text-main: #2C3038;
-            --text-sub: #5A606B;
+            --danger-red: #C60C30;
+            --text-main: #222222;
+            --text-sub: #555555;
             --bg-page: #FFFFFF;
-            --bg-box: #F8F9FA;
-            --border-light: #E9ECEF;
+            --bg-box: #F5F7FA;
+            --border-line: #E0E4E8;
         }
 
         * {
@@ -39,7 +36,7 @@
             padding: 40px;
         }
 
-        /* 16:9 슬라이드 캔버스 */
+        /* 16:9 슬라이드 캔버스 고정 */
         .slide {
             width: 1280px;
             height: 720px;
@@ -52,224 +49,130 @@
             page-break-after: always;
         }
 
-        /* KPMG 로고 공통 배치 */
+        /* KPMG 로고 임시 텍스트 플레이스홀더 */
         .logo {
             position: absolute;
             bottom: 30px;
             right: 50px;
-            width: 100px;
-            height: auto;
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--kpmg-blue);
+            font-family: Arial, sans-serif;
+            letter-spacing: 1px;
         }
 
-        /* 공통 헤더 스타일 (세련된 라인형) */
+        /* 공통 헤더 */
         .header {
             padding: 50px 60px 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            border-bottom: 2px solid var(--border-light);
+            border-bottom: 2px solid var(--kpmg-blue);
             margin-bottom: 30px;
         }
-
         .header-title {
-            font-size: 34px;
+            font-size: 32px;
             font-weight: 800;
             color: var(--kpmg-blue);
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        /* 강조 요약 박스 (모던 스타일) */
-        .summary-box {
-            background-color: #F0F4F8; /* 아주 연한 블루그레이 */
-            border-radius: 8px;
+        /* 리드 메시지 (핵심 요약 박스) */
+        .lead-message {
+            background-color: var(--bg-box);
+            border-left: 6px solid var(--kpmg-light-blue);
             padding: 20px 30px;
             margin: 0 60px 30px 60px;
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--kpmg-blue);
-            line-height: 1.5;
-            letter-spacing: -0.3px;
-            border-left: 5px solid var(--kpmg-blue);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.4;
         }
 
-        /* 본문 영역 */
+        /* 본문 컨테이너 */
         .content {
             flex: 1;
             padding: 0 60px;
             display: flex;
             flex-direction: column;
             gap: 20px;
-            color: var(--text-main);
         }
 
-        /* 모던한 카드형 박스 */
-        .card-container {
-            display: flex;
-            gap: 24px;
-            height: 100%;
-        }
-
-        .card {
-            flex: 1;
-            background-color: var(--bg-page);
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .card-text {
-            font-size: 18px;
-            line-height: 1.6;
-            color: var(--text-sub);
-        }
-
-        /* 목록 스타일 (깔끔한 다크그레이) */
+        /* 개조식(Bullet) 리스트 공통 스타일 */
         ul { list-style: none; }
         ul li {
             position: relative;
-            padding-left: 18px;
-            margin-bottom: 15px;
-            font-size: 18px;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 19px;
             line-height: 1.6;
             color: var(--text-main);
         }
         ul li::before {
-            content: "•";
+            content: "■";
             position: absolute;
             left: 0;
-            top: -2px;
-            font-size: 20px;
-            color: var(--kpmg-light-blue);
+            top: 2px;
+            font-size: 12px;
+            color: var(--kpmg-blue);
         }
 
-        /* 세련된 표 스타일 (미니멀리즘) */
+        /* 하이라이트 텍스트 */
+        strong { font-weight: 800; color: var(--kpmg-blue); }
+        .danger { color: var(--danger-red); }
+
+        /* 표(Table) 스타일 */
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 19px;
         }
-        
         th, td {
-            padding: 18px 20px;
+            border: 1px solid var(--border-line);
+            padding: 20px;
             text-align: left;
-            line-height: 1.5;
-            border-bottom: 1px solid var(--border-light);
+            vertical-align: top;
+            line-height: 1.6;
         }
-
         th {
             background-color: var(--bg-box);
-            color: var(--text-main);
-            font-weight: 700;
-            border-top: 2px solid var(--kpmg-blue);
-            border-bottom: 2px solid var(--border-light);
-        }
-
-        td:first-child {
-            font-weight: 700;
-            color: var(--text-main);
-            background-color: #FAFAFC;
-            width: 25%;
-        }
-
-        /* 프로세스 화살표 도식화 (플랫 디자인) */
-        .process-flow {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 0;
-            margin-bottom: 20px;
-        }
-        
-        .process-step {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-            background: var(--bg-box);
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 18px;
-            color: var(--text-main);
-            border: 1px solid var(--border-light);
-        }
-
-        .process-arrow {
-            color: #C0C5CE;
-            font-size: 24px;
-            margin: 0 10px;
-        }
-
-        /* 표지 전용 레이아웃 */
-        .cover {
-            justify-content: center;
-            padding: 80px;
-            background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-        }
-        .cover-top-bar {
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 12px;
-            background: linear-gradient(90deg, var(--kpmg-blue) 0%, var(--kpmg-light-blue) 100%);
-        }
-        .cover-tag {
-            display: inline-block;
-            background-color: var(--kpmg-blue);
-            color: white;
-            padding: 8px 16px;
-            font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-        }
-        .cover-title {
-            font-size: 64px;
+            color: var(--kpmg-blue);
             font-weight: 800;
-            color: var(--text-main);
-            line-height: 1.3;
-            letter-spacing: -1.5px;
-            margin-bottom: 20px;
+            text-align: center;
+            border-top: 3px solid var(--kpmg-blue);
         }
-        .cover-subtitle {
-            font-size: 28px;
-            font-weight: 400;
-            color: var(--text-sub);
-            margin-bottom: 80px;
+        td:first-child {
+            background-color: #FAFAFC;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: middle;
         }
-        .cover-info {
-            font-size: 20px;
-            line-height: 1.8;
-            color: var(--text-main);
-        }
-        .cover-info strong { font-weight: 700; color: var(--kpmg-blue); }
-        .cover-logo-large {
-            position: absolute;
-            bottom: 60px;
-            right: 80px;
-            width: 180px;
-        }
+
+        /* 레이아웃: 컬럼(다단) 분할 */
+        .col-container { display: flex; gap: 24px; height: 100%; }
+        .col { flex: 1; border: 1px solid var(--border-line); padding: 30px; border-top: 4px solid var(--kpmg-blue); }
+        .col-title { font-size: 22px; font-weight: 800; color: var(--kpmg-blue); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px dashed var(--border-line); }
+        
+        .col-danger { border-top-color: var(--danger-red); }
+        .col-danger .col-title { color: var(--danger-red); }
+        .col-danger ul li::before { color: var(--danger-red); }
+
+        /* 와이드 박스 */
+        .wide-box { background-color: #FFF5F7; border: 1px solid var(--danger-red); padding: 25px 30px; margin-top: 10px; border-left: 6px solid var(--danger-red); }
+        .wide-box-title { font-size: 20px; font-weight: 800; color: var(--danger-red); margin-bottom: 10px; }
+
+        /* 4단계 프로세스 레이아웃 */
+        .process-flow { display: flex; align-items: center; justify-content: space-between; margin-top: 30px; }
+        .process-step { flex: 1; text-align: center; padding: 30px 20px; background: var(--bg-box); border: 1px solid var(--border-line); border-top: 4px solid var(--kpmg-blue); font-weight: 700; font-size: 20px; min-height: 140px; display: flex; align-items: center; justify-content: center; word-break: keep-all; line-height: 1.5; }
+        .process-arrow { font-size: 30px; color: var(--kpmg-light-blue); margin: 0 15px; font-weight: 900; }
+
+        /* 표지 레이아웃 */
+        .cover { justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #ffffff 0%, var(--bg-box) 100%); }
+        .cover-tag { display: inline-block; background-color: var(--kpmg-blue); color: white; padding: 10px 20px; font-weight: 700; font-size: 18px; margin-bottom: 30px; }
+        .cover-title { font-size: 64px; font-weight: 900; color: var(--text-main); margin-bottom: 20px; letter-spacing: -1.5px; }
+        .cover-subtitle { font-size: 28px; font-weight: 500; color: var(--text-sub); margin-bottom: 80px; }
+        .cover-info { font-size: 22px; font-weight: 700; color: var(--kpmg-blue); border-top: 1px solid var(--border-line); padding-top: 20px; }
 
         /* 인쇄 최적화 */
         @media print {
             body { background-color: #fff; padding: 0; margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .slide { box-shadow: none; margin: 0; width: 1280px; height: 720px; page-break-after: always; }
+            .slide { box-shadow: none; margin: 0; page-break-after: always; }
             @page { size: 1280px 720px; margin: 0; }
         }
     </style>
@@ -278,19 +181,11 @@
 
     <!-- Slide 1: 표지 -->
     <div class="slide cover">
-        <div class="cover-top-bar"></div>
-        <div>
-            <div class="cover-tag">2026 신입 컨설턴트 공채 1차 실무 면접</div>
-            <div class="cover-title">학습하지 않는 AI가<br>기업을 살린다</div>
-            <div class="cover-subtitle">지울 수 없는 AI의 리스크와 RAG 중심의 보안 아키텍처</div>
-            
-            <div class="cover-info">
-                지원 분야 : <strong>Digital Consulting (Cyber Security)</strong><br>
-                지 원 자 : <strong>최수빈</strong><br>
-                Contact : <strong>suebeenchoi@gmail.com</strong>
-            </div>
-        </div>
-        <img src="kpmglogo.svg" alt="KPMG Logo" class="cover-logo-large">
+        <div class="cover-tag">2026 신입 컨설턴트 1차 실무 면접</div>
+        <div class="cover-title"><strong>학습하지 않는 AI</strong>가 기업을 살린다</div>
+        <div class="cover-subtitle">지울 수 없는 AI의 리스크와 RAG 중심의 보안 아키텍처 타당성 검토</div>
+        <div class="cover-info">삼정KPMG | Cyber Security 직무 | 최수빈</div>
+        <div class="logo">KPMG</div>
     </div>
 
     <!-- Slide 2: Executive Summary -->
@@ -298,359 +193,258 @@
         <div class="header">
             <div class="header-title">Executive Summary</div>
         </div>
-        
-        <div class="summary-box">
-            자체 파인튜닝 방식은 법률적·기술적 타당성을 상실하였으며, 독립된 Vector DB를 활용하는 RAG 아키텍처로의 전환이 필수적입니다.
-        </div>
-
+        <div class="lead-message">자체 파인튜닝 방식은 법률적·기술적 타당성을 상실하였으며, 독립된 Vector DB를 활용하는 RAG 아키텍처로의 전환이 필수적입니다.</div>
         <div class="content">
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-title">⚠️ 01. As-Is 리스크</div>
-                    <div class="card-text">
-                        기술과 법률의 정면충돌이 발생합니다. '분산 표상'이라는 AI 딥러닝의 블랙박스 특성으로 인해 특정 데이터의 파기 및 역추적이 불가능하며, 이는 현행법(개보법 제21조, 제37조의2)을 정면으로 위배합니다.
-                    </div>
+            <div class="col-container">
+                <div class="col col-danger">
+                    <div class="col-title">01. As-Is 리스크</div>
+                    <ul>
+                        <li>데이터 <strong>파기 불가</strong> (기술적 한계)</li>
+                        <li><strong>개인정보보호법</strong> 정면 위배</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <div class="card-title">📉 02. 비즈니스 임팩트</div>
-                    <div class="card-text">
-                        알고리즘 폐기 리스크입니다. 글로벌 규제(미국 FTC)는 불법 데이터로 학습된 알고리즘의 '전량 폐기'를 강제하고 있어 기업에 파멸적이고 천문학적인 매몰 비용을 유발합니다.
-                    </div>
+                <div class="col col-danger">
+                    <div class="col-title">02. 비즈니스 임팩트</div>
+                    <ul>
+                        <li>글로벌 규제(<strong>FTC</strong>) 적발 리스크 고조</li>
+                        <li>알고리즘 전량 폐기에 따른 <strong>천문학적 매몰 비용</strong> 유발</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <div class="card-title">💡 03. To-Be 솔루션</div>
-                    <div class="card-text">
-                        Privacy-Preserving RAG 아키텍처입니다. LLM에 기업 데이터를 학습시키지 않고 사내망에 통제된 Vector DB를 연동하여 '물리적 삭제'와 '설명요구권'을 100% 충족하는 방안을 제안합니다.
-                    </div>
+                <div class="col">
+                    <div class="col-title">03. To-Be 솔루션</div>
+                    <ul>
+                        <li><strong>Vector DB</strong> 연동 구축</li>
+                        <li>물리적 삭제(<strong>Hard Delete</strong>) 완벽 구현</li>
+                        <li><strong>설명요구권 100% 충족</strong></li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <img src="kpmglogo.svg" alt="KPMG Logo" class="logo">
+        <div class="logo">KPMG</div>
     </div>
 
     <!-- Slide 3: AI 파인튜닝의 기술적 맹점 -->
     <div class="slide">
         <div class="header">
-            <div class="header-title">Chapter 1. AI 파인튜닝의 기술적 맹점</div>
+            <div class="header-title">AI 파인튜닝의 기술적 맹점</div>
         </div>
-        
-        <div class="summary-box">
-            LLM 파인튜닝은 데이터의 '분산 표상'을 유발하여 특정 개인정보의 정밀 타겟팅 및 삭제를 수학적으로 불가능하게 만듭니다.
-        </div>
-
         <div class="content">
-            <h3 style="font-size: 22px; margin-bottom: 10px;">데이터 저장 구조의 근본적 차이 🗄️ vs 🧠</h3>
             <table>
                 <tr>
-                    <th>구분</th>
-                    <th>기존 RDBMS</th>
-                    <th>LLM 파인튜닝</th>
+                    <th style="width: 20%;">구분</th>
+                    <th style="width: 40%;">기존 RDBMS</th>
+                    <th style="width: 40%;">LLM 파인튜닝</th>
                 </tr>
                 <tr>
                     <td>저장 방식</td>
-                    <td>테이블 구조 및 인덱스 기반 정형화 저장</td>
-                    <td>수백억 개 파라미터에 실수형 확률값으로 분해 및 은닉</td>
+                    <td><strong>테이블 구조</strong> 및 <strong>인덱스(Index)</strong> 기반 저장</td>
+                    <td>수백억 개 파라미터에 실수형 확률값으로 은닉 (<strong>분산 표상</strong>)</td>
                 </tr>
                 <tr>
                     <td>삭제 가능성</td>
-                    <td>DELETE 쿼리를 통한 명확한 영구 파기 가능</td>
-                    <td>원본 데이터 소멸 및 계보 상실로 역추적 및 파기 불가</td>
+                    <td><strong>DELETE 쿼리</strong>를 통한 특정 레코드(Row) <strong>영구 파기 가능</strong></td>
+                    <td>원본 데이터 소멸 및 족보 상실로 <strong>특정 데이터 타겟팅 파기 불가</strong></td>
                 </tr>
             </table>
+            
+            <div class="wide-box" style="margin-top: 30px;">
+                <div class="wide-box-title">⚠️ 리스크 경고: 머신 언러닝(Machine Unlearning)의 구조적 한계</div>
+                <ul>
+                    <li>강제 삭제(머신 언러닝) 시도 시, 파라미터 연쇄 붕괴 발생</li>
+                    <li>모델 전체의 추론 능력이 상실되는 <strong class="danger">'재앙적 망각(Catastrophic Forgetting)'</strong> 리스크 직면</li>
+                </ul>
+            </div>
+        </div>
+        <div class="logo">KPMG</div>
+    </div>
 
-            <div class="card" style="margin-top: 10px;">
-                <div class="card-title" style="font-size: 20px;">머신 언러닝(Machine Unlearning)의 한계 🚫</div>
-                <div class="card-text">
-                    파라미터 간의 강한 결합성으로 인해 특정 데이터만 선택적으로 삭제하려 시도할 경우, '재앙적 망각(Catastrophic Forgetting)' 현상이 발생하여 AI 모델 전체의 추론 능력이 붕괴됩니다.
+    <!-- Slide 4: 국내법 컴플라이언스 정면충돌 -->
+    <div class="slide">
+        <div class="header">
+            <div class="header-title">국내법 컴플라이언스 정면충돌</div>
+        </div>
+        <div class="lead-message danger" style="border-left-color: var(--danger-red); color: var(--danger-red);">파인튜닝 방식은 개정 개인정보보호법의 핵심 조항을 정면 위배합니다.</div>
+        <div class="content">
+            <div class="col-container">
+                <div class="col col-danger">
+                    <div class="col-title">개보법 제21조 (물리적 파기 의무) 위반</div>
+                    <ul>
+                        <li>화면 프론트엔드 <strong>마스킹(***) 처리</strong>는 규제 당국이 인정하는 법적 파기가 아님</li>
+                        <li>단순 가림막 조치로, 사실상 <strong class="danger">'위법한 은닉 보관'</strong> 상태에 해당</li>
+                    </ul>
+                </div>
+                <div class="col col-danger">
+                    <div class="col-title">개보법 제37조의2 (설명요구권) 미충족</div>
+                    <ul>
+                        <li>자동화된 시스템 결정 시, <strong>결정 기준</strong> 및 <strong>참조 데이터 설명</strong> 의무화</li>
+                        <li>블랙박스 모델 특성상 "과거 어떤 데이터를 참조했는지" <strong>데이터 족보(Lineage) 증명 불가</strong></li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <img src="kpmglogo.svg" alt="KPMG Logo" class="logo">
+        <div class="logo">KPMG</div>
     </div>
 
-    <!-- Slide 4: RAG 중심의 보안 아키텍처 -->
+    <!-- Slide 5: 글로벌 컴플라이언스 리스크 및 매몰 비용 -->
     <div class="slide">
         <div class="header">
-            <div class="header-title">Chapter 2. RAG 중심의 보안 아키텍처</div>
+            <div class="header-title">글로벌 컴플라이언스 리스크 및 매몰 비용</div>
         </div>
-        
-        <div class="summary-box">
-            법적 타당성을 확보하기 위한 유일한 대안은, 기업 데이터를 LLM에 학습시키지 않고 통제된 사내 DB에 격리하는 RAG 아키텍처입니다.
-        </div>
-
         <div class="content">
-            <h3 style="font-size: 22px; margin-bottom: 10px;">시스템 아키텍처 흐름 🔄</h3>
+            <div class="col-container" style="height: auto; margin-bottom: 20px;">
+                <div class="col col-danger">
+                    <div class="col-title">미국 FTC '알고리즘 사형 선고' (독수독과 원칙)</div>
+                    <ul>
+                        <li><strong>Everalbum (2021)</strong>: 파생 알고리즘 <strong>전량 폐기 명령</strong></li>
+                        <li><strong>Rite Aid (2023)</strong>: 신경망 전량 폐기 및 <strong>5년간 AI 사용 전면 금지</strong></li>
+                    </ul>
+                </div>
+                <div class="col col-danger">
+                    <div class="col-title">EU 선제적 규제망 및 천문학적 과징금</div>
+                    <ul>
+                        <li><strong>GDPR 제17조 잊힐 권리</strong> 엄격 적용 (기술적 한계 면책 불가)</li>
+                        <li><strong>EU AI Act</strong>: 위반 시 글로벌 연 매출의 <strong>최대 7% 과징금</strong> 부과<br>
+                        (예: 10조 원 매출 기업 적발 시, <strong class="danger">최대 7,000억 원</strong> 부과)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="wide-box" style="flex: 1;">
+                <div class="wide-box-title">비즈니스 임팩트: 수백억 원대 Sunk Cost 발생</div>
+                <ul>
+                    <li>규제 적발 시, 파운데이션 모델 인프라 <strong>전체를 폐기</strong>하고 <strong>재학습</strong> 강제</li>
+                    <li>기업의 AI 투자 수익성(ROI)을 붕괴시키는 <strong class="danger">치명적 매몰 비용 유발</strong></li>
+                </ul>
+            </div>
+        </div>
+        <div class="logo">KPMG</div>
+    </div>
+
+    <!-- Slide 6: 파인튜닝 vs RAG 타당성 비교 -->
+    <div class="slide">
+        <div class="header">
+            <div class="header-title">파인튜닝 vs RAG 타당성 비교</div>
+        </div>
+        <div class="content">
+            <table style="height: 100%;">
+                <tr>
+                    <th style="width: 20%;">평가 기준</th>
+                    <th style="width: 40%; color: var(--danger-red);">LLM 파인튜닝 (As-Is)</th>
+                    <th style="width: 40%;">RAG 아키텍처 (To-Be)</th>
+                </tr>
+                <tr>
+                    <td>보안성</td>
+                    <td>분산 표상으로 <strong>파기 불가</strong></td>
+                    <td>Vector DB 레코드 <strong>즉시 삭제</strong></td>
+                </tr>
+                <tr>
+                    <td>컴플라이언스</td>
+                    <td>잊힐 권리·설명요구권 <strong>위반</strong></td>
+                    <td>현행법 <strong>100% 충족</strong></td>
+                </tr>
+                <tr>
+                    <td>비즈니스 리스크</td>
+                    <td>적발 시 모델 전량 폐기 (<strong class="danger">매몰 비용 폭발</strong>)</td>
+                    <td>데이터 메타데이터 관리로 <strong>모델 영구 재사용</strong></td>
+                </tr>
+            </table>
+        </div>
+        <div class="logo">KPMG</div>
+    </div>
+
+    <!-- Slide 7: RAG 중심의 보안 아키텍처 -->
+    <div class="slide">
+        <div class="header">
+            <div class="header-title">RAG 중심의 보안 아키텍처</div>
+        </div>
+        <div class="lead-message">법적 타당성을 확보하기 위한 <strong>유일한 대안</strong>은, 기업 데이터를 LLM에 학습시키지 않고 통제된 사내 DB에 격리하는 <strong>RAG 아키텍처</strong>입니다.</div>
+        <div class="content">
             <div class="process-flow">
-                <div class="process-step">사용자 질의</div>
+                <div class="process-step">사용자 질의<br>➔<br>사내 독립 <strong>Vector DB</strong>에서 관련 문서 검색</div>
                 <div class="process-arrow">➔</div>
-                <div class="process-step">사내 독립 Vector DB<br><span style="font-size: 15px; font-weight: 400;">(관련 문서 검색)</span></div>
+                <div class="process-step">검색된 문서 + 질의를<br><strong>텅 빈 LLM</strong>에 전달<br>(<strong>추론만 수행</strong>)</div>
                 <div class="process-arrow">➔</div>
-                <div class="process-step">텅 빈 LLM 엔진<br><span style="font-size: 15px; font-weight: 400;">(문서 기반 추론만 수행)</span></div>
+                <div class="process-step">LLM이 검색 문서 기반 답변 생성 및<br><strong>인용 출처(Citation) 시각화</strong> 제공</div>
                 <div class="process-arrow">➔</div>
-                <div class="process-step">답변 및<br>출처 명확 제공</div>
-            </div>
-
-            <table>
-                <tr>
-                    <th>평가 기준</th>
-                    <th>LLM 파인튜닝 (As-Is)</th>
-                    <th>RAG 아키텍처 (To-Be)</th>
-                </tr>
-                <tr>
-                    <td>보안성 (삭제 가능성)</td>
-                    <td>분산 표상으로 특정 데이터 파기 불가</td>
-                    <td><strong>Vector DB 레코드 단위 즉시 삭제 (Hard Delete)</strong></td>
-                </tr>
-                <tr>
-                    <td>컴플라이언스 (법적 타당성)</td>
-                    <td>개보법 제21조 / 제37조의2 정면 위배</td>
-                    <td><strong>잊힐 권리 및 설명요구권 100% 충족</strong></td>
-                </tr>
-            </table>
-
-            <ul style="margin-top: 10px;">
-                <li><strong>컴플라이언스 100% 충족:</strong> 고객 파기 요청 시 Vector DB 내 단일 레코드만 삭제하여 물리적 파기를 즉시 달성하고, AI 답변 화면 하단에 원본 문서 인용 출처를 시각화하여 설명 가능성을 완벽히 부여합니다.</li>
-            </ul>
-        </div>
-        <img src="kpmglogo.svg" alt="KPMG Logo" class="logo">
-    </div>
-
-    <!-- Slide 5: 비용 추이 및 매몰비용 회피 -->
-    <div class="slide">
-        <div class="header">
-            <div class="header-title">Chapter 3. 파인튜닝 vs RAG: 규제 적발 시 비용 추이</div>
-        </div>
-        
-        <div class="summary-box">
-            파인튜닝 방식은 규제 적발 시 모델 전량 폐기로 인한 매몰 비용을 피할 수 없으나, RAG 아키텍처는 데이터만 분리 관리하여 모델 재사용 가능성을 확보합니다.
-        </div>
-
-        <div class="content">
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-title">파인튜닝 (As-Is) 비용 추이 💸</div>
-                    <ul>
-                        <li><strong>초기 투자:</strong> 파운데이션 모델 라이선스 + 파인튜닝 학습 비용 (수십억 원)</li>
-                        <li><strong>규제 적발 시:</strong> 모델 전량 폐기 강제 (투자 전액 손실)</li>
-                        <li><strong>재투자 필요:</strong> 새로운 모델 재구매 + 재학습 비용 (초기 투자 규모 재소요)</li>
-                        <li style="font-weight: 700; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 10px;">총 누적 비용 = 초기 투자 × 2 + 과징금</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="card-title">RAG (To-Be) 비용 추이 💡</div>
-                    <ul>
-                        <li><strong>초기 투자:</strong> Vector DB 구축 + 사내 LLM API 연동 (수억 원 규모)</li>
-                        <li><strong>규제 적발 시:</strong> Vector DB 내 위법 데이터만 삭제 (모델 지속 재사용)</li>
-                        <li><strong>추가 비용:</strong> 단순 데이터 정제/관리 비용만 소요 (모델 폐기 없음)</li>
-                        <li style="font-weight: 700; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 10px;">총 누적 비용 = 초기 투자 + 데이터 관리 비용</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card" style="margin-top: 20px; padding: 20px 30px;">
-                <div class="card-title" style="border:none; padding:0; margin-bottom: 10px; font-size: 18px;">매몰 비용 회피 메커니즘 🛡️</div>
-                <div class="card-text">
-                    RAG는 LLM을 '텅 빈 추론 엔진'으로만 사용하므로, 기업 데이터의 위법성이 적발되어도 LLM 가중치 구조에는 데이터가 내재되지 않았기에 모델 폐기 대상이 되지 않습니다. 반면 파인튜닝은 규제 적발 시 모델 전체가 폐기되는 구조적 취약점을 가집니다.
-                </div>
+                <div class="process-step" style="border-color: var(--kpmg-light-blue); border-width: 3px;">Vector DB 레코드 단위 <strong>즉시 삭제</strong>로<br><strong>'잊힐 권리' 100% 충족</strong></div>
             </div>
         </div>
-        <img src="kpmglogo.svg" alt="KPMG Logo" class="logo">
-    </div>
-
-    <!-- Slide 6: 국내법 컴플라이언스 정면충돌 -->
-    <div class="slide">
-        <div class="header">
-            <div class="header-title">Chapter 4. 국내법 컴플라이언스 정면충돌</div>
-        </div>
-        
-        <div class="summary-box">
-            기술적 삭제 및 추적의 불가능성은 개정 개인정보보호법의 핵심 조항을 정면 위배하는 결과를 초래합니다.
-        </div>
-
-        <div class="content">
-            <div class="card-container" style="flex-direction: column;">
-                <div class="card">
-                    <div class="card-title">⚖️ 개보법 제21조 위반 (물리적 파기 의무)</div>
-                    <ul>
-                        <li><strong>법적 요구:</strong> 목적 달성 시 복구 불가능한 영구 파기(Hard Delete)를 강제합니다.</li>
-                        <li><strong>실무적 한계:</strong> 프론트엔드에서 별표(***) 처리하는 '마스킹' 기법은 단순 블라인드 처리일 뿐, 규제 당국이 인정하는 법적 파기가 아닌 '위법한 은닉 보관'으로 판단됩니다.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="card-title">⚖️ 개보법 제37조의2 위반 (설명요구권 미충족)</div>
-                    <ul>
-                        <li><strong>법적 요구:</strong> 자동화된 결정 시 해당 결정의 기준 및 참조 데이터 설명 의무(2024년 3월 시행)를 규정합니다.</li>
-                        <li><strong>실무적 한계:</strong> 블랙박스 모델 특성상 "과거 어떤 데이터를 참조하여 현재의 결론을 내렸는지" 족보를 입증할 수 없어 정보주체의 요구에 대응할 수 없습니다.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <img src="kpmglogo.svg" alt="KPMG Logo" class="logo">
-    </div>
-
-    <!-- Slide 7: 글로벌 컴플라이언스 리스크 및 매몰 비용 -->
-    <div class="slide">
-        <div class="header">
-            <div class="header-title">Chapter 5. 글로벌 컴플라이언스 리스크 및 매몰 비용</div>
-        </div>
-        
-        <div class="summary-box">
-            EU의 강력한 데이터 주권 규제와 미국 FTC의 '알고리즘 사형 선고' 판례는 기업에 치명적인 비즈니스 타격을 가하고 있습니다.
-        </div>
-
-        <div class="content">
-            <h3 style="font-size: 20px; margin-bottom: 10px;">규제 강도의 점진적 심화 (미국 FTC 사건 추이) 🏛️</h3>
-            <table>
-                <tr>
-                    <th>연도</th>
-                    <th>기업</th>
-                    <th>위반 사항</th>
-                    <th>과징금</th>
-                    <th>조치 결과</th>
-                </tr>
-                <tr>
-                    <td>2021</td>
-                    <td>Everalbum</td>
-                    <td>탈퇴 고객 안면 데이터 삭제 거부</td>
-                    <td>약 65억 원</td>
-                    <td>파생 알고리즘 전량 폐기, 5년 감시</td>
-                </tr>
-                <tr>
-                    <td>2023</td>
-                    <td>Rite Aid</td>
-                    <td>편향된 생체 데이터 학습 안면인식 AI</td>
-                    <td>약 130억 원 이상</td>
-                    <td><strong>신경망 전량 폐기, 5년 사용 금지</strong></td>
-                </tr>
-            </table>
-
-            <ul style="margin-top: 10px;">
-                <li><strong>EU 선제적 규제망 (GDPR/AI Act):</strong> "가중치 구조상 삭제가 어렵다"는 기술적 한계는 파기 불이행의 면책 사유가 되지 않으며, 위반 시 글로벌 연 매출의 <strong>최대 7% 과징금</strong>이 부과됩니다.</li>
-                <li><strong>비즈니스 임팩트:</strong> 글로벌 규제 적발 시, 기업은 수십~수백억 원이 투입된 AI 인프라 전체를 폐기해야 하는 매몰 비용을 떠안게 되며, 이는 AI 투자 수익성을 완전히 역전시킵니다.</li>
-            </ul>
-        </div>
-        <img src="kpmglogo.svg" alt="KPMG Logo" class="logo">
+        <div class="logo">KPMG</div>
     </div>
 
     <!-- Slide 8: 다층 방어 거버넌스 -->
     <div class="slide">
         <div class="header">
-            <div class="header-title">Chapter 6. 다층 방어 거버넌스 수립</div>
+            <div class="header-title">다층 방어 거버넌스</div>
         </div>
-        
-        <div class="summary-box">
-            아키텍처 전환과 함께, 데이터의 무단 입력과 외부 반출을 원천 차단하는 다층적 보안 거버넌스 수립이 동반되어야 합니다.
-        </div>
-
+        <div class="lead-message">아키텍처 전환과 함께, 데이터의 <strong>입력과 외부 반출을 원천 차단</strong>하는 다층 방어 거버넌스가 수반되어야 합니다.</div>
         <div class="content">
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-title">👨‍💻 프롬프트 게이트웨이 통제 (기술적 조치)</div>
-                    <div class="card-text">
-                        <ul>
-                            <li>정규표현식(Regex) 기반 유효성 검사를 시스템에 적용합니다.</li>
-                            <li>임직원이 실수로 사내 기밀·주민등록번호 등을 챗봇 질의 창에 입력 시, LLM으로 전송되기 전 프론트엔드 단에서 강제 마스킹 및 전송 차단을 수행합니다.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">📝 서드파티 위수탁 계약 통제 (제도적 조치)</div>
-                    <div class="card-text">
-                        <ul>
-                            <li>OpenAI, Anthropic 등 외부 AI 벤더사 모델 도입 시 <strong>Zero Data Retention(데이터 미저장)</strong> 정책을 강제합니다.</li>
-                            <li>계약서 내 '입력 데이터 학습 이용 금지(Opt-out)' 특약을 필수적으로 반영하여 완전한 기업 데이터 주권을 확보합니다.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img src="kpmglogo.svg" alt="KPMG Logo" class="logo">
-    </div>
-
-    <!-- Slide 9: 결론 및 제언 -->
-    <div class="slide">
-        <div class="header">
-            <div class="header-title">Chapter 7. 결론 및 제언</div>
-        </div>
-        
-        <div class="summary-box">
-            '잊힐 권리' 딜레마를 해결하는 RAG 중심의 보안 전략으로 기업의 AI 신뢰도를 확보하고, 규제 리스크를 제거하여 디지털 신뢰 리더십을 완성하겠습니다.
-        </div>
-
-        <div class="content">
-            <div class="card-container" style="flex-direction: column;">
-                <div class="card" style="padding: 20px 30px;">
-                    <div class="card-title" style="border: none; padding: 0; margin-bottom: 10px;">✅ 기술적 투명성 확보</div>
-                    <div class="card-text">
-                        Vector DB 기반 RAG 인프라로 전환하여 AI 답변의 출처를 명확히 시각화하고 정보주체에 대한 설명 가능성을 완벽히 부여합니다.
-                    </div>
-                </div>
-                <div class="card" style="padding: 20px 30px;">
-                    <div class="card-title" style="border: none; padding: 0; margin-bottom: 10px;">✅ 철저한 데이터 보호</div>
-                    <div class="card-text">
-                        프롬프트 게이트웨이 구축으로 기업 기밀 및 개인정보의 외부 유출과 무단 입력을 프론트엔드 단계에서 원천 차단합니다.
-                    </div>
-                </div>
-                <div class="card" style="padding: 20px 30px;">
-                    <div class="card-title" style="border: none; padding: 0; margin-bottom: 10px;">✅ 거버넌스 체계 강화</div>
-                    <div class="card-text">
-                        서드파티 계약 표준화(Zero Data Retention)를 통해 외부 AI 벤더의 데이터 무단 학습을 금지하여 확고한 기업 데이터 주권을 지킵니다.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img src="kpmglogo.svg" alt="KPMG Logo" class="logo">
-    </div>
-
-    <!-- Slide 10: 역량 비전 -->
-    <div class="slide">
-        <div class="header">
-            <div class="header-title">Vision. AI Agent 통제 거버넌스 전문가</div>
-        </div>
-        
-        <div class="summary-box">
-            Phase 1에서 RAG 도입을 통한 '데이터' 통제 거버넌스를 확보한 후, Phase 2에서는 AI Agent 시대의 '행위(API 실행)' 통제까지 확장하는 Zero-Trust 거버넌스를 설계하겠습니다.
-        </div>
-
-        <div class="content">
-            <div class="card-container" style="margin-bottom: 20px;">
-                <div class="card" style="padding: 20px;">
-                    <div class="card-title" style="font-size: 18px; margin-bottom: 10px;">Phase 1 (현재): 데이터 통제 거버넌스</div>
+            <div class="col-container" style="flex-direction: column;">
+                <div class="col">
+                    <div class="col-title">기술적 조치: 프롬프트 게이트웨이 통제</div>
                     <ul>
-                        <li>RAG 아키텍처를 통해 기업 데이터의 물리적 삭제와 설명 가능성 확보</li>
-                        <li>프롬프트 게이트웨이 및 서드파티 계약 통제로 데이터 입출력 차단</li>
+                        <li><strong>정규표현식(Regex)</strong> 기반 유효성 검사 적용</li>
+                        <li>임직원 사내 기밀 입력 시, LLM 전송 전 <strong>강제 마스킹 및 차단</strong></li>
                     </ul>
                 </div>
-                <div class="card" style="padding: 20px;">
-                    <div class="card-title" style="font-size: 18px; margin-bottom: 10px;">Phase 2 (미래): 행위 통제 거버넌스 확장</div>
+                <div class="col">
+                    <div class="col-title">제도적 조치: 서드파티 위수탁 계약 통제</div>
                     <ul>
-                        <li>단순 챗봇을 넘어 스스로 판단하고 API를 호출하는 자율형 AI Agent 시대 진입</li>
-                        <li>최소 권한 원칙(Least Privilege)과 Human-in-the-Loop 결재 도입으로 AI 권한 남용 방어</li>
+                        <li>OpenAI 등 외부 AI 벤더사 연동 시 <strong>'Zero Data Retention'</strong> 정책 강제</li>
+                        <li>계약서 내 <strong>'입력 데이터 학습 이용 금지(Opt-out)'</strong> 특약 필수 반영</li>
                     </ul>
                 </div>
             </div>
+        </div>
+        <div class="logo">KPMG</div>
+    </div>
 
-            <h3 style="font-size: 20px; margin-bottom: 10px;">■ 역량 증명: 제도, 기술, UX 융합형 인재</h3>
-            <table>
+    <!-- Slide 9: 결론 및 역량 비전 -->
+    <div class="slide">
+        <div class="header">
+            <div class="header-title">결론 및 역량 비전: AI Agent 통제 거버넌스 전문가</div>
+        </div>
+        <div class="content">
+            
+            <!-- 로드맵 -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 20px; background-color: var(--bg-box); padding: 15px; border-radius: 8px;">
+                <div style="font-size: 20px; font-weight: 800; color: var(--kpmg-blue);">Phase 1</div>
+                <div style="font-size: 19px;">RAG를 통한 데이터 통제 거버넌스 확보</div>
+                <div class="process-arrow" style="margin: 0;">➔</div>
+                <div style="font-size: 20px; font-weight: 800; color: var(--kpmg-light-blue);">Phase 2</div>
+                <div style="font-size: 19px; font-weight: 700;">AI Agent 시대의 행위 및 API 통제 거버넌스 확장</div>
+            </div>
+
+            <!-- 역량 증명 표 -->
+            <table style="margin-bottom: 20px;">
                 <tr>
                     <th style="width: 15%;">영역</th>
-                    <th>핵심 경험 사례</th>
+                    <th>실무 역량 증명 (경험 및 성과)</th>
                 </tr>
                 <tr>
-                    <td>제도 (Policy)</td>
-                    <td><strong>메가스터디교육:</strong> 개인정보처리방침 개정 및 현업 부서별 위수탁계약서 법적 쟁점 검토</td>
+                    <td>제도</td>
+                    <td><strong>메가스터디</strong>: 개인정보처리방침 개정 및 현업 위수탁계약서 쟁점 검토 실무 수행</td>
                 </tr>
                 <tr>
-                    <td>기술 (Tech)</td>
-                    <td><strong>소만사:</strong> 카카오 API 연동 및 정규표현식 기반의 물리적 유효성 검사 로직 직접 구현</td>
+                    <td>기술</td>
+                    <td><strong>소만사</strong>: HTML 기반 API 연동 및 정규표현식 활용 물리적 유효성 검사 로직 구축</td>
                 </tr>
                 <tr>
                     <td>UX</td>
-                    <td><strong>학술 논문 주저자:</strong> 생성형 AI RAG 도입 및 맹신 방지를 위한 '반성적 인가 UX' 설계 논문 발표</td>
+                    <td><strong>학술 논문 주저자</strong>: 공학도 대상 생성형 AI RAG 도입 및 맹신 방지를 위한 '반성적 인가 UX' 설계</td>
                 </tr>
             </table>
+
+            <!-- 클로징 비전 -->
+            <div class="wide-box" style="border-color: var(--kpmg-blue); border-left-color: var(--kpmg-blue); background-color: #F0F4F8; flex: 1; display: flex; align-items: center; justify-content: center;">
+                <div style="font-size: 23px; font-weight: 700; color: var(--text-main); text-align: center; line-height: 1.6;">
+                    "데이터 파기 리스크 방어를 넘어,<br>
+                    향후 자율적으로 행동하는 <strong>'AI Agent'의 최소 권한 원칙(Least Privilege) 통제</strong>까지 설계하는<br>
+                    삼정KPMG의 최전선 전략가가 되겠습니다."
+                </div>
+            </div>
         </div>
-        <img src="kpmglogo.svg" alt="KPMG Logo" class="logo">
+        <div class="logo">KPMG</div>
     </div>
 
 </body>
